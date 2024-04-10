@@ -5,15 +5,20 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        num_to_index = {}
-        # Iterate over the array
+        
+
+        number_hash = {} 
+
+        # itration 
         for index, num in enumerate(nums):
-            # Calculate the complement of the current number
-            complement = target - num
-            # If the complement exists in our dictionary, we have found a pair
-            if complement in num_to_index:
-                return [num_to_index[complement], index]
-            # Add the current number to the dictionary
-            num_to_index[num] = index
-        # If no pair is found, return an empty list (or an error)
+            # saving complement for tracking backing in dictonary 
+            complement = target - num 
+
+            if complement in number_hash:
+                return [number_hash[complement], index]
+
+            number_hash[num] = index 
+
         return []
+
+        
