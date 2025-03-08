@@ -5,20 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+
+        num_dict = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in num_dict:
+                return [num_dict[complement],i]
+            num_dict[num] = i
         
-
-        number_hash = {} 
-
-        # itration 
-        for index, num in enumerate(nums):
-            # saving complement for tracking backing in dictonary 
-            complement = target - num 
-
-            if complement in number_hash:
-                return [number_hash[complement], index]
-
-            number_hash[num] = index 
-
-        return []
-
         
