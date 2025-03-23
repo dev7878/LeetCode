@@ -14,21 +14,13 @@ class Solution(object):
         # check gap between special[-1] and top 
         # return highest
 
-        special.sort()
+        
+        floor_gap_arr = [bottom-1] + sorted(special) + [top+1]
 
-        inter_gap = 0 
-
-        bottom_gap = special[0] - bottom 
-
-        for i in range(1,len(special)):
-
-            gap = special[i] - special[i-1] -1 
-            inter_gap = max(gap, inter_gap) 
-
-        top_gap = top - special[-1] 
-
-        return max(bottom_gap,inter_gap,top_gap )
-
+        res = 0
+        for i in range(1, len(floor_gap_arr)):
+            res = max(res, floor_gap_arr[i]-floor_gap_arr[i-1]-1)
+        return res
             
 
 
